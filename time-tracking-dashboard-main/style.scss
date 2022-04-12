@@ -1,0 +1,435 @@
+$dashboard-back: transparent;
+$background-color: hsl(226, 43%, 10%);
+$profile: hsl(235, 46%, 20%);
+$profile-top: hsl(246, 80%, 60%);
+////////////////////////////////////////
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+body {
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  font-size: 62.5%;
+  font-family: "Rubik", sans-serif;
+  background-color: $background-color;
+}
+%card {
+  background-color: yellowgreen;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
+%card_data {
+  font-size: 45px;
+  margin-left: 9px;
+}
+%card_sub {
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.dashboard {
+  background-color: $dashboard-back;
+  width: 52rem;
+  height: 23.1rem;
+  margin: 136px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  border-radius: 14px;
+  overflow: hidden;
+
+  &_profile {
+    grid-row: 1/3;
+    background-color: $profile;
+    color: #ffffffb5;
+    border-radius: 14px;
+    overflow: hidden;
+    &_top {
+      background-color: $profile-top;
+      padding-bottom: 28px;
+      border-radius: 14px;
+    }
+    &_img {
+      width: 50px;
+      height: 50px;
+
+      margin: 20px 0 0 30px;
+      border: 2px solid white;
+      border-radius: 50%;
+    }
+    &_head1 {
+      width: 47%;
+      text-align: center;
+      margin: 26px 0 0 15px;
+      font-size: 15px;
+    }
+    &_head2 {
+      margin-top: 1px;
+      font-size: 25px;
+      display: flex;
+      flex-direction: column;
+      /* align-items: center; */
+      margin-left: 36px;
+    }
+    &_daily {
+      margin-top: 21px;
+      &_link:link,
+      &_link:visited {
+        color: #ffffff2e;
+        text-decoration: none;
+        display: block;
+      }
+    }
+    &_weekly {
+      &_link:link,
+      &_link:visited {
+        color: #ffffff2e;
+        text-decoration: none;
+        display: block;
+      }
+    }
+    &_monthly {
+      &_link:link,
+      &_link:visited {
+        color: #ffffff2e;
+        text-decoration: none;
+        display: block;
+      }
+    }
+    &_time {
+      font-size: 16px;
+      margin-left: 51px;
+      margin-bottom: 5px;
+    }
+  }
+  &_work {
+    @extend %card;
+    background-color: hsl(15, 100%, 70%);
+    &_svg {
+      transform: scale(0.6);
+      position: absolute;
+      top: -26px;
+      right: -8px;
+    }
+    &_head {
+    }
+    &_para {
+      @extend %card_data;
+    }
+    &_sub {
+      @extend %card_sub;
+    }
+  }
+  &_play {
+    @extend %card;
+    background-color: hsl(195, 74%, 62%);
+    &_svg {
+      position: absolute;
+      transform: scale(0.65);
+      top: -18px;
+      right: 0;
+    }
+    &_head {
+    }
+    &_para {
+      @extend %card_data;
+    }
+    &_sub {
+      @extend %card_sub;
+    }
+  }
+  &_study {
+    @extend %card;
+    background-color: hsl(348, 100%, 68%);
+    &_svg {
+      position: absolute;
+      transform: scale(0.65);
+      top: -18px;
+      right: 0;
+    }
+    &_head {
+    }
+    &_para {
+      @extend %card_data;
+    }
+    &_sub {
+      @extend %card_sub;
+    }
+  }
+  &_exercise {
+    @extend %card;
+    background-color: hsl(145, 58%, 55%);
+    &_svg {
+      position: absolute;
+      transform: scale(0.65);
+
+      top: -11px;
+      right: 0;
+    }
+    &_head {
+    }
+    &_para {
+      @extend %card_data;
+    }
+    &_sub {
+      @extend %card_sub;
+    }
+  }
+  &_social {
+    @extend %card;
+    background-color: hsl(264, 64%, 52%);
+    &_svg {
+      position: absolute;
+      transform: scale(0.65);
+      top: -27px;
+      right: -3px;
+    }
+    &_head {
+    }
+    &_para {
+      @extend %card_data;
+    }
+    &_sub {
+      @extend %card_sub;
+    }
+  }
+  &_self {
+    @extend %card;
+    background-color: hsl(43, 84%, 65%);
+    &_svg {
+      position: absolute;
+      transform: scale(0.65);
+      top: -17px;
+      right: -1px;
+    }
+    &_head {
+    }
+    &_para {
+      @extend %card_data;
+    }
+    &_sub {
+      @extend %card_sub;
+    }
+  }
+}
+.top {
+  background-color: $profile;
+  height: 83%;
+  margin-top: 31px;
+  padding: 18px 0 0 13px;
+  z-index: 5;
+  position: relative;
+  color: #ffffffe0;
+  border-radius: 14px;
+}
+.active:link,
+.active:visited {
+  color: #ffffff;
+}
+@media (max-width: 938px) {
+  .dashboard {
+    width: 47rem;
+  }
+}
+@media (max-width: 842px) {
+  .dashboard {
+    width: 40rem;
+  }
+  .dashboard_profile_head1 {
+    width: 52%;
+  }
+  .dashboard_links {
+    margin: 24px 0 0 -8px;
+  }
+  .dashboard_profile_head2 {
+    margin-left: 28px;
+  }
+}
+@media (max-width: 740px) {
+  .dashboard {
+    width: 34rem;
+    overflow: visible;
+  }
+  .dashboard_profile_head1 {
+    width: 62%;
+  }
+  section.dashboard_profile {
+    width: 120%;
+    margin-left: -15px;
+  }
+  .dashboard_work_para,
+  .dashboard_play_para,
+  .dashboard_study_para,
+  .dashboard_exercise_para,
+  .dashboard_social_para,
+  .dashboard_self_para {
+    font-size: 35px;
+    margin-left: 9px;
+  }
+  .dashboard_work_sub,
+  .dashboard_play_sub,
+  .dashboard_study_sub,
+  .dashboard_exercise_sub,
+  .dashboard_social_sub,
+  .dashboard_self_sub {
+    font-size: 12px;
+    margin-left: 4px;
+  }
+}
+@media (max-width: 630px) {
+  .dashboard {
+    width: 30rem;
+    overflow: visible;
+  }
+  .dashboard_profile_head2 {
+    font-size: 21px;
+    margin-top: 6px;
+  }
+
+  .dashboard_links {
+    margin: 24px 0 0 -16px;
+  }
+  .dashboard_work_para,
+  .dashboard_play_para,
+  .dashboard_study_para,
+  .dashboard_exercise_para,
+  .dashboard_social_para,
+  .dashboard_self_para {
+    font-size: 30px;
+    margin-left: 9px;
+    margin-top: 11px;
+  }
+  .dashboard_work_sub,
+  .dashboard_play_sub,
+  .dashboard_study_sub,
+  .dashboard_exercise_sub,
+  .dashboard_social_sub,
+  .dashboard_self_sub {
+    font-size: 12px;
+    margin-left: -4px;
+    width: 120%;
+    margin-top: 9px;
+  }
+}
+////////////////////////
+@media (max-width: 570px) {
+  main.dashboard {
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: 1fr;
+    height: auto;
+    width: 20rem;
+  }
+  .dashboard_work,
+  .dashboard_play,
+  .dashboard_study,
+  .dashboard_exercise,
+  .dashboard_social,
+  .dashboard_self {
+    height: 100%;
+  }
+  .dashboard_play {
+    transform: translateY(-3px);
+  }
+  .dashboard_study {
+    transform: translateY(-5px);
+  }
+  .dashboard_exercise {
+    transform: translateY(-9px);
+  }
+  .dashboard_social {
+    transform: translateY(-9px);
+  }
+  .dashboard_self {
+    transform: translateY(-9px);
+  }
+  section.dashboard_profile {
+    width: 100%;
+    margin-left: 0;
+  }
+  .dashboard_profile_head2 {
+    margin-top: 1px;
+    font-size: 25px;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .dashboard_work_sub,
+  .dashboard_play_sub,
+  .dashboard_study_sub,
+  .dashboard_exercise_sub,
+  .dashboard_social_sub,
+  .dashboard_self_sub {
+    font-size: 12px;
+    margin-left: 194px;
+    width: 120%;
+    /* margin-top: 9px; */
+    transform: translateY(-32px);
+  }
+  .dashboard_profile_time {
+    font-size: 18px;
+  }
+}
+@media (max-width: 410px) {
+  main.dashboard {
+    width: 17rem;
+  }
+  .dashboard_work_sub,
+  .dashboard_play_sub,
+  .dashboard_study_sub,
+  .dashboard_exercise_sub,
+  .dashboard_social_sub,
+  .dashboard_self_sub {
+    margin-left: 149px;
+
+    /* margin-top: 9px; */
+
+    transform: translateY(-40px);
+  }
+}
+@media (max-width: 330px) {
+  main.dashboard {
+    width: 15rem;
+  }
+  .dashboard_work_sub,
+  .dashboard_play_sub,
+  .dashboard_study_sub,
+  .dashboard_exercise_sub,
+  .dashboard_social_sub,
+  .dashboard_self_sub {
+    margin-left: 121px;
+
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+  }
+}
+@media (max-width: 265px) {
+  main.dashboard {
+    width: 12rem;
+  }
+  .dashboard_profile_head2 {
+    font-size: 20px;
+    margin-left: 22px;
+  }
+  .dashboard_profile_head1 {
+    font-size: 12px;
+  }
+  .dashboard_work_sub,
+  .dashboard_play_sub,
+  .dashboard_study_sub,
+  .dashboard_exercise_sub,
+  .dashboard_social_sub,
+  .dashboard_self_sub {
+    margin-left: 92px;
+    transform: translateY(-38px);
+    font-size: 10px;
+  }
+}
